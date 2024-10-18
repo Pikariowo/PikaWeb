@@ -1,142 +1,163 @@
 <!DOCTYPE html>
 <html>
-    
     <style>
-        html {
-            height: 100%;
-        }
-        
-        marquee {
-            overflow: hidden;
-            white-space: nowrap;
-            width: 100%; /* 根據需要調整寬度 */
-            animation: marquee 10s linear infinite; /* 調整 10s 為你想要的速度 */
-        }
-
-        @keyframes marquee {
-            from {
-                transform: translateX(100%);
-            }
-            to {
-                transform: translateX(-100%);
-            }
-        }
-        
-        div {
-            font-size: 40px;
-        }
-        
         body {
-            background-image: url(qkUYZHZ.png);
+            background-image: url(Night_Sky.png);
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-position: top;
-            background-size: cover;
+            background-size: auto;
+            width: 100%;
+            height: auto;
         }
     </style>
     
     <head>
-        <meta charset =“utf-8”> <!--  UTF-8編碼 -->
-        <title>皮卡卡聚集地</title>
-        
+        <meta charset="UTF-8">
+        <title>Video API 示例</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+            .container {
+                width: 100%;
+                text-align: right; /* 左對齊 */
+                height: 100%;
+                margin-top: -125px;
+            }
+        </style>
+
+        <h1 style="color: yellow; text-align: center; font-family: 標楷體; font-size: 64px; margin-left: 50px;">自介區</h1>
+        
+        <div class="container">
+            <a href="test.html" target="_self"><img src="./hikari_amazing.png" alt="返回" title="我婆很可愛"></a>
+        </div>
+        
+        <p></p>
+        <hr>
     </head>
     
     <body>
-        
-        <style>
-            .test {
-                text-shadow: 2px 2px 2px rgba(0.0,0.0,0.0,0.85)
+
+        <style>   
+            .list_group_1 p {
+                font-size: 30px;
+                text-shadow: 2px 2px 3px rgba(255,255,255,0.9);
+                color: lightgreen;
+            }
+            
+            .title {
+                color: aqua;
+                font-size: 36px;
+                text-shadow: 4px 4px 5px rgba(0,0,0,0.9);
             }
         </style>
         
-        <h1><center><mark>Hello,Everyone</mark></center></h1>
-        <h1><center><a href="https://elearning.nkust.edu.tw/mooc/login.php" target="_blank">高科大—教學平台</a></center></h1>
-        <hr>
-        <br>
-        <h1><p><marquee>你真的看的到我在移動嗎</marquee></p></h1>
-        <br>
-        
-        <div>
-            <table style="width:100%" border="5">
-                <center><b>《My Hobby》</b></center>
-                <tr> <!-- 表格主題-->
-                    <th><strong>我愛蘿莉</strong></th>
+        <div class="list_group_1">
+            <table style="width:100%" border="3">
+                <tr style="text-align: center"> <!-- 表格主題-->
+                    <th class="title"><strong>《專長 or 興趣》</strong></th>
+                    <th class="title"><strong>個人專頁or平台網站</strong></th>                
+                </tr>
+                <!--專長的項目-->
+                <tr>
                     <th>
-                        <a href="https://www.youtube.com/" target="_blank">Youtube</a>
+                        <p>Coding</p>
+                        <p>Musicing</p>
+                        <p>Rhythm Game</p>
+                    </th>
+                    <!--個人社群-->
+                    <th>
+                        <p><a href="https://www.youtube.com/@Pikariowo" target="_blank" alt="Youtube" title="前往皮卡YT">Youtube</a></p>
+                        <p><a href="https://x.com/Pikariowo" target="_blank" alt="Twitter" title="前往皮卡推特">X(舊Twitter)</a></p>
                     </th>
                 </tr>
-
-                <tr> <!--Youtube-->
-                    <th><em>我愛蘿莉</em></th>
-                    <th>
-                        <a href="https://www.bilibili.com/" target="_blank">BiliBili</a>
-                    </th>
-                </tr>
-        
-                <tr> <!--Youtube-->
-                    <th><u>我愛蘿莉</u></th>
-                    <th>
-                        <a href="GOAHEAD.html" target="_self">自介專區</a>
-                    </th>
-                </tr> 
-                
-                <tr> <!--Youtube-->
-                    <th><u>我愛蘿莉</u></th>
-                </tr> 
-        
-                <tr> <!--Youtube-->
-                    <th><s>我愛蘿莉</s></th>
-                </tr> 
-        
-                <tr> <!--Youtube-->
-                    <th><del><u><i>我愛蘿莉</i></u></del></th>
-                </tr> 
             </table>
         </div>
         
-        <br>
-        
-        <div class="test">
-            <h3>※ Math Test</h3>
-            <p><i>這是 2<sup>10</sup>次方</i></p>
-            <br>
-            <p><i>這是 2<sub>2</sub></i></p>
-        </div>
-        
-        <div class="test">
-            <h3>※ List Test</h3>
-            <label for="browser">Choose your browser from the list:</label>
-            <input list="browsers" name="browser" id="browser">
+        <div class="list_grade">
+            <p style="text-align: center ; font-size: 45px; color: yellow; text-shadow: 2px 2px 5px rgba(0.0,0.0,0.0,0.9); margin-left: 50px">《接觸項目》</p>
+            
+            <table style="width: auto"></table>
+            
+            <style>
+                /* 設置滾動區域 */
+                .scroll-box {
+                  width: 50%;           /* 區域的寬度 */
+                  height: 75%;          /* 區域的高度 */
+                  overflow-y: scroll;     /* 垂直滾動 */
+                  border: 5px solid black; /* 添加邊框方便查看 */
+                  padding: 10px;
+                  background-color: #f9f9f9;
+                }
 
-            <datalist id="browsers">
-              <option value="Edge">
-              <option value="Firefox">
-              <option value="Chrome">
-              <option value="Opera">
-              <option value="Safari">
-            </datalist>
+                /* 模擬多段內容 */
+                .content {
+                    color: darkblue;
+                    text-shadow: 2px 2px 5px rgba(255.0, 255.0, 255.0, 0.9);
+                }
+            </style>
+            
+            <style>
+            
+                .content {
+                    font-size: 35px;
+                    color: lightgreen;
+                    font-family: Times New Roman;
+                }
+                
+            </style>
+            
+            <div class="scroll-box">
+                <h1 style="text-align: center">【音樂遊戲】</h1>
+                <center><img src="./look.gif" alt="返回" title="薄荷真的好菜"></center>
+                <br>
+                <div class="content">
+                    <table style="width: 100%" border="3">
+                        <tr>
+                            <th><li>Lanota。</li></th>
+                            <th><li>World Dai Star。</li></th>  
+                        </tr>
+                        
+                        <tr>
+                            <th><li>SDVX。</li></th>
+                            <th><li>Rotaeno。</li></th>
+                        </tr>
+                        
+                        <tr>
+                            <th><li>MaiMai。</li></th>
+                            <th><li>Project Sekai。</li></th>
+                        </tr>
+                        
+                        <tr>
+                            <th><li>Dynamix。</li></th>
+                            <th><li>Bang Dream。</li></th>
+                        </tr>
+                        
+                        <tr>
+                            <th><li>Arcaea。</li></th>
+                            <th><li>起源。</li></th>
+                        </tr>
+                        
+                        <tr>
+                            <th><li>TAKUMI。</li></th>
+                            <th><li>Deemo。</li></th>
+                        </tr>
+                        
+                        <tr>
+                            <th><li>Deemo II。</li></th>
+                            <th><li>Cytus。</li></th>
+                        </tr>
+                        
+                        <tr>
+                            <th><li>Cytus II。</li></th>
+                            <th><li>Kalpa。</li></th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
         
-        <!--影片放置-->
-        <div>
-            <center>
-                <h1>《影片放置測試》</h1>
-                    <iframe width="1920" height="1080" src="https://www.youtube-nocookie.com/embed/CMOTlZsXPTE?si=5YrVX2JTnr8746iM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </center>
-        </div>
-        
-        <br>
-        
-        <!--音檔放置測試-->
-        <div>
-            <center>
-                <h1>《音檔放置測試》</h1>
-                <audio src="C:\Users\tommy\Desktop\Music\音樂\HoneycomeBear\❀HoneyComeBear❀  Revolver ♪.mkv" controls>
-                </audio> 
-            </center>
-        </div>
 
+        
     </body>
-
 </html>
