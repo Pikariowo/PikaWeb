@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+html {
+    font-size: 100%;
+}
+
+.test {
+    text-shadow: 2px 2px 2px rgba(0.0,0.0,0.0,0.85)
+}
+
+
+.bgs {
+    min-height: 12vh;
+    background: #1c1d26;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+div {
+    font-size: 30px;
+}
+
+.index_logo {
+    width: 5%;
+    margin-top: 0.5%;
+    text-align: center;
+}
+
+.navcss {
+    display: flex;
+    margin-top: -5%;
+    font-weight: bold;
+    font-size: 25px;
+    float: right;
+}
+
+.navcss a {
+    text-decoration: none;
+    text-shadow: 3px 1px 5px rgba(255,255,0,1.0);
+    color: white;
+}
+
+.had {
+    max-width: 100%;
+    margin: 0 5px;
+    padding: 0 5%;
+    width: auto;
+}
+
+footer p {
+    text-align: center;
+    color: white;
+    font-family: monospace;
+}
+
+footer {
+    background-color: darkblue;
+}
+
+
+.form_bg {
+    background-color: lightsalmon;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+}
+
+.form_ft {
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 1.0);
+    color: aliceblue;
+}

@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.profile img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.profile h1 {
+    font-size: 2rem;
+    margin-top: 20px;
+    color: #333;
+}
+
+.profile p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    text-align: center;
+    margin-top: 15px;
+    color: #666;
+}
+
+.contact-info {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.contact-info div {
+    width: 30%;
+    margin-bottom: 1%;
+    position: inherit;
+}
+
+.contact-info p {
+    font-size: 20px;
+}
+
+.contact-info h1 {
+    color: #4CAF50;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+
+.container_hikari {
+    width: 100%;
+    z-index: 100;
+    text-align: right;
+    height: 100%;
+    margin-top: -125px;
+    /*測試固定用*/
+    position: fixed;
+    top: 102%; 
+    right: 5px; 
+}
