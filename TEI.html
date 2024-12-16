@@ -60,21 +60,33 @@
             padding: 8px;
             text-align: left;
         }
+        .remove-btn {
+            margin-top: 10px;
+            display: inline-block;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .remove-btn:hover {
+            background-color: #d32f2f;
+        }
     </style>
     
     <div class="container">
 
         <!-- Section for defining tags -->
         <div class="form-section">
-            <h2>Step 1: Define Tags</h2>
+            <h2>Step 1: 創建標籤</h2>
             <form id="tagForm">
                 <label for="tagName">Tag Name (e.g., &lt;people&gt;):</label>
                 <input type="text" id="tagName" placeholder="Tag name">
                 <label for="keywords">Keywords (comma-separated):</label>
                 <input type="text" id="keywords" placeholder="e.g., populations, citizens">
-                <button type="button" onclick="addTag()">Add Tag</button>
+                <button type="button" onclick="addOrUpdateTag()">Add/Update Tag</button>
             </form>
-            <h3>Defined Tags:</h3>
+            <h3>定義/紀錄標記:</h3>
             <table id="tagTable">
                 <thead>
                     <tr>
@@ -85,42 +97,51 @@
                 </thead>
                 <tbody></tbody>
             </table>
-            <button type="button" onclick="saveTags()">Save Tags</button>
-            <button type="button" onclick="loadTags()">Load Tags</button>
+            <button type="button" onclick="saveTags()">儲存 Tags</button>
+            <button type="button" onclick="loadTags()">讀取 Tags</button>
         </div>
 
         <!-- Section for file upload and marking -->
         <div class="form-section">
-            <h2>Step 2: Upload and Mark File</h2>
+            <h2>Step 2: 上傳要標記的檔案</h2>
             <input type="file" id="fileInput" accept=".txt, .xml">
-            <button type="button" onclick="processFile()">Process File</button>
-            <h3>Original Content:</h3>
-            <textarea id="originalContent" readonly></textarea>
-            <h3>Marked Content:</h3>
+            <button type="button" onclick="processFile()">處理標記</button>
+            <button type="button" onclick="clearFileInput()">清除上傳檔案</button>
+            <h3>原始檔案:</h3>
+            <textarea id="originalContent"></textarea>
+            <button type="button" onclick="clearOriginalContent()">移除檔案資料(原始)</button>
+            <h3>標記後的檔案:</h3>
             <textarea id="markedContent" readonly></textarea>
         </div>
 
         <!-- Section for analysis -->
         <div class="form-section">
-            <h2>Step 3: Analyze Marked Data</h2>
+            <h2>Step 3: 分析XML資料</h2>
             <button type="button" onclick="analyzeData()">Analyze</button>
             <h3>Analysis Results:</h3>
             <div id="analysisResults"></div>
         </div>
     </div>
     <footer>
-        <p>TEI Markup Tool &copy; 2024</p>
+        <p>TEI 標記工具 by 皮 ch.Hikari &copy; 2024</p>
     </footer>
 
     <script>
         let tags = [];
 
-        function addTag() {
+        function addOrUpdateTag() {
             const tagName = document.getElementById('tagName').value.trim();
             const keywords = document.getElementById('keywords').value.trim().split(',').map(k => k.trim());
 
             if (tagName && keywords.length > 0) {
-                tags.push({ tagName, keywords });
+                const existingTag = tags.find(tag => tag.tagName === tagName);
+                if (existingTag) {
+                    // Add new keywords to the existing tag
+                    existingTag.keywords = Array.from(new Set([...existingTag.keywords, ...keywords]));
+                } else {
+                    // Create a new tag
+                    tags.push({ tagName, keywords });
+                }
                 updateTagTable();
             } else {
                 alert('Please enter a tag name and at least one keyword.');
@@ -189,12 +210,26 @@
 
             tags.forEach(tag => {
                 tag.keywords.forEach(keyword => {
-                    const regex = new RegExp(`\b${keyword}\b`, 'gi');
+                    const regex = new RegExp(`\\b${escapeRegExp(keyword)}\\b`, 'gi');
                     markedText = markedText.replace(regex, `<${tag.tagName}>$&</${tag.tagName}>`);
                 });
             });
 
             return markedText;
+        }
+
+        function escapeRegExp(string) {
+            return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // Escape special characters for regex
+        }
+
+        function clearOriginalContent() {
+            document.getElementById('originalContent').value = '';
+            document.getElementById('markedContent').value = '';
+        }
+
+        function clearFileInput() {
+            const fileInput = document.getElementById('fileInput');
+            fileInput.value = '';
         }
 
         function analyzeData() {
@@ -206,15 +241,21 @@
 
             const analysisResults = document.getElementById('analysisResults');
             const tagCounts = {};
+            const tagSamples = {};
 
             tags.forEach(tag => {
-                const regex = new RegExp(`<${tag.tagName}>.*?</${tag.tagName}>`, 'g');
-                const matches = markedContent.match(regex) || [];
+                const regex = new RegExp(`<${tag.tagName}>(.*?)</${tag.tagName}>`, 'g');
+                const matches = [...markedContent.matchAll(regex)];
                 tagCounts[tag.tagName] = matches.length;
+                tagSamples[tag.tagName] = matches.map(match => match[1]);
             });
 
-            analysisResults.innerHTML = '<ul>' +
+            analysisResults.innerHTML = '<h4>Tag Counts:</h4><ul>' +
                 Object.entries(tagCounts).map(([tag, count]) => `<li>${tag}: ${count} occurrences</li>`).join('') +
+                '</ul>';
+
+            analysisResults.innerHTML += '<h4>Sample Data:</h4><ul>' +
+                Object.entries(tagSamples).map(([tag, samples]) => `<li>${tag}: ${samples.join(', ')}</li>`).join('') +
                 '</ul>';
         }
     </script>
