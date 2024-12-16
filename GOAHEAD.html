@@ -2,61 +2,69 @@
 <html>
     <style>
         body {
-            background-image: url(Night_Sky.png);
-            background-repeat: no-repeat;
+            background-image: url(./imgs/Night_Sky.png);
+            background-repeat: repeat;
             background-attachment: fixed;
             background-position: top;
             background-size: auto;
-            width: 100%;
-            height: auto;
+            max-width: 100%;
         }
     </style>
     
     <head>
         <meta charset="UTF-8">
-        <title>Video API 示例</title>
+        <title>皮卡卡聚集地－My Self</title>
+        <link rel=stylesheet href="./CSS/intro/intro.css">
+        <link rel=stylesheet type="text/css" href="./CSS/tooltip.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <style>
-            .container {
-                width: 100%;
-                text-align: right; /* 左對齊 */
-                height: 100%;
-                margin-top: -125px;
-            }
-        </style>
 
-        <h1 style="color: yellow; text-align: center; font-family: 標楷體; font-size: 64px; margin-left: 50px;">自介區</h1>
+        <h1 style="color: yellow; text-align: center; font-family: 標楷體; font-size: 64px;">自介區</h1>
         
         <div class="container">
-            <a href="test.html" target="_self"><img src="./hikari_amazing.png" alt="返回" title="我婆很可愛"></a>
+            <a href="index.html" target="_self" class="tooltip"><img src="./imgs/hikari_amazing.webp" alt="返回" title="返回首頁"><span class="tooltiptext">返回首頁</span></a>
         </div>
-        
-        <p></p>
         <hr>
     </head>
     
+    
+    
     <body>
+             
+        <div class="list_group_2">
+            <table style="width:100%" border="5">
+                <center><b>《My Hobby》</b></center>
+                <tr> <!-- 表格主題-->
+                    <th><strong>Youtube Channel</strong></th>
+                    <th>
+                        <a href="https://www.youtube.com/@Pikariowo" class="tooltip" target="_blank"><p>皮 ch.Hikari</p><span class="tooltiptext">前往皮卡Youtube</span></a>
+                        
+                    </th>
+                </tr>
 
-        <style>   
-            .list_group_1 p {
-                font-size: 30px;
-                text-shadow: 2px 2px 3px rgba(255,255,255,0.9);
-                color: lightgreen;
-            }
-            
-            .title {
-                color: aqua;
-                font-size: 36px;
-                text-shadow: 4px 4px 5px rgba(0,0,0,0.9);
-            }
-        </style>
+                <tr> <!--Youtube-->
+                    <th><em>X(舊推特)</em></th>
+                    <th>
+                        <a href="https://x.com/Pikariowo" target="_blank" class="tooltip"><p>皮卡卡</p><span class="tooltiptext">前往皮卡のX</span></a>
+                    </th>
+                </tr>
+        
+                <tr> <!--Youtube-->
+                    <th><u>我愛蘿莉</u></th>
+                    <th>
+                        <a href="GOAHEAD.html" target="_self" class="tooltip"><p>自介專區</p><span class="tooltiptext">My Self</span></a>
+                    </th>
+                </tr> 
+            </table>
+        </div>
+        
+        <p>
         
         <div class="list_group_1">
             <table style="width:100%" border="3">
                 <tr style="text-align: center"> <!-- 表格主題-->
                     <th class="title"><strong>《專長 or 興趣》</strong></th>
-                    <th class="title"><strong>個人專頁or平台網站</strong></th>                
+                    <th class="title"><strong>《喜歡的東西》</strong></th>                
                 </tr>
                 <!--專長的項目-->
                 <tr>
@@ -67,8 +75,9 @@
                     </th>
                     <!--個人社群-->
                     <th>
-                        <p><a href="https://www.youtube.com/@Pikariowo" target="_blank" alt="Youtube" title="前往皮卡YT">Youtube</a></p>
-                        <p><a href="https://x.com/Pikariowo" target="_blank" alt="Twitter" title="前往皮卡推特">X(舊Twitter)</a></p>
+                        <p>Minecraft</p>
+                        <p>音樂遊戲</p>
+                        <p>蘿莉</p>
                     </th>
                 </tr>
             </table>
@@ -80,24 +89,6 @@
             <table style="width: auto"></table>
             
             <style>
-                /* 設置滾動區域 */
-                .scroll-box {
-                  width: 50%;           /* 區域的寬度 */
-                  height: 75%;          /* 區域的高度 */
-                  overflow-y: scroll;     /* 垂直滾動 */
-                  border: 5px solid black; /* 添加邊框方便查看 */
-                  padding: 10px;
-                  background-color: #f9f9f9;
-                }
-
-                /* 模擬多段內容 */
-                .content {
-                    color: darkblue;
-                    text-shadow: 2px 2px 5px rgba(255.0, 255.0, 255.0, 0.9);
-                }
-            </style>
-            
-            <style>
             
                 .content {
                     font-size: 35px;
@@ -107,57 +98,112 @@
                 
             </style>
             
-            <div class="scroll-box">
-                <h1 style="text-align: center">【音樂遊戲】</h1>
-                <center><img src="./look.gif" alt="返回" title="薄荷真的好菜"></center>
-                <br>
-                <div class="content">
-                    <table style="width: 100%" border="3">
-                        <tr>
-                            <th><li>Lanota。</li></th>
-                            <th><li>World Dai Star。</li></th>  
-                        </tr>
-                        
-                        <tr>
-                            <th><li>SDVX。</li></th>
-                            <th><li>Rotaeno。</li></th>
-                        </tr>
-                        
-                        <tr>
-                            <th><li>MaiMai。</li></th>
-                            <th><li>Project Sekai。</li></th>
-                        </tr>
-                        
-                        <tr>
-                            <th><li>Dynamix。</li></th>
-                            <th><li>Bang Dream。</li></th>
-                        </tr>
-                        
-                        <tr>
-                            <th><li>Arcaea。</li></th>
-                            <th><li>起源。</li></th>
-                        </tr>
-                        
-                        <tr>
-                            <th><li>TAKUMI。</li></th>
-                            <th><li>Deemo。</li></th>
-                        </tr>
-                        
-                        <tr>
-                            <th><li>Deemo II。</li></th>
-                            <th><li>Cytus。</li></th>
-                        </tr>
-                        
-                        <tr>
-                            <th><li>Cytus II。</li></th>
-                            <th><li>Kalpa。</li></th>
-                        </tr>
-                    </table>
+            <div class="scroll-container">
+                <div class="scroll-box">
+                    <h1 style="text-align: center; color: lightgray">【Rhythm】</h1>
+                    <br>
+                    <div class="content">
+                        <table style="width: 100%" border="3">
+                            <tr>
+                                <th><li>Lanota</li></th>
+                                <th><li>World Dai Star</li></th>  
+                            </tr>
+                            <tr>
+                                <th><li>SDVX</li></th>
+                                <th><li>Rotaeno</li></th>
+                            </tr>
+                            <tr>
+                                <th><li>MaiMai</li></th>
+                                <th><li>Project Sekai</li></th>
+                            </tr>
+                            <tr>
+                                <th><li>Dynamix</li></th>
+                                <th><li>Bang Dream</li></th>
+                            </tr>
+                            <tr>
+                                <th><li>Arcaea</li></th>
+                                <th><li>起源</li></th>
+                            </tr>
+                            <tr>
+                                <th><li>TAKUMI</li></th>
+                                <th><li>Deemo</li></th>
+                            </tr>
+                            <tr>
+                                <th><li>Deemo II</li></th>
+                                <th><li>Cytus</li></th>
+                            </tr>
+                            <tr>
+                                <th><li>Cytus II</li></th>
+                                <th><li>Kalpa</li></th>
+                            </tr>
+                            <tr>
+                                <th><li>CHUNITHM</li></th>
+                                <th><li>太鼓達人</li></th>
+                            </tr>
+                            <tr>
+                                <th><li>Love Live</li></th>
+                                <th><li>WACCA</li></th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="scroll-box">
+                    <h1 style="text-align: center; color: lightgray">【Programming Language】</h1>
+                    <br>
+                    <div class="content">
+                        <table style="width: 100%" border="3">
+                            <tr>
+                                <th><li>Java</li></th>
+                            </tr>
+                            <tr>
+                                <th><li>C/C++</li></th>
+                            </tr>
+                            <tr>
+                                <th><li>Python</li></th>  
+                            </tr>
+                            <tr>
+                                <th><li>JavaScript</li></th>  
+                            </tr>
+                            <tr>
+                                <th><li>Minecraft Script</li></th>  
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <h1 style="text-align: center; color: lightgray">【Other】</h1>
+                    <br>
+                    <div class="content">
+                        <table style="width: 100%" border="3">
+                            <tr>
+                                <th><li>Html</li></th>
+                            </tr>
+                            <tr>
+                                <th><li>CSS</li></th>
+                            </tr>
+                             <tr>
+                                <th><li>Minecraft Server架設</li></th>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
         
-
+        <br><br><br>
+        <div class="row-container">
+                <p>以上內容　　　</p>
+                <img src="./imgs/look.webp" alt="返回" title="薄荷真的好菜">
+                <p>　不及備載</p>
+        </div>
+        
+        <br>
+        <!--頁尾-->
+        <footer>
+            <div class="footer">
+                <p>&copy; 2024 Pikariowo. 版權所有。</p>
+            </div>
+        </footer>
         
     </body>
 </html>

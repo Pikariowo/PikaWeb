@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel=stylesheet type="text/css" href="./CSS/tooltip.css">
+    <style>
+        .container_baby {
+        width: 100%;
+        z-index: 100;
+        text-align: right;
+        height: 100%;
+        margin-top: -125px;
+        /*測試固定用*/
+        position: fixed;
+        top: 102%; 
+        right: 5px; 
+    }
+    </style>
+    <div class="container_baby">
+        <a href="index.html" target="_self" class="tooltip"><img src="./imgs/hikari_amazing.webp" alt="返回" title="返回首頁"><span class="tooltiptext">返回首頁</span></a>
+    </div>
+    <title>TEI Markup Tool</title>
+</head>
+<body>
+    <header>
+        <h1>TEI Markup Tool</h1>
+    </header>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header, footer {
+            background: #f4f4f4;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .form-section {
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+    
+    <div class="container">
+
+        <!-- Section for defining tags -->
+        <div class="form-section">
+            <h2>Step 1: Define Tags</h2>
+            <form id="tagForm">
+                <label for="tagName">Tag Name (e.g., &lt;people&gt;):</label>
+                <input type="text" id="tagName" placeholder="Tag name">
+                <label for="keywords">Keywords (comma-separated):</label>
+                <input type="text" id="keywords" placeholder="e.g., populations, citizens">
+                <button type="button" onclick="addTag()">Add Tag</button>
+            </form>
+            <h3>Defined Tags:</h3>
+            <table id="tagTable">
+                <thead>
+                    <tr>
+                        <th>Tag Name</th>
+                        <th>Keywords</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <button type="button" onclick="saveTags()">Save Tags</button>
+            <button type="button" onclick="loadTags()">Load Tags</button>
+        </div>
+
+        <!-- Section for file upload and marking -->
+        <div class="form-section">
+            <h2>Step 2: Upload and Mark File</h2>
+            <input type="file" id="fileInput" accept=".txt, .xml">
+            <button type="button" onclick="processFile()">Process File</button>
+            <h3>Original Content:</h3>
+            <textarea id="originalContent" readonly></textarea>
+            <h3>Marked Content:</h3>
+            <textarea id="markedContent" readonly></textarea>
+        </div>
+
+        <!-- Section for analysis -->
+        <div class="form-section">
+            <h2>Step 3: Analyze Marked Data</h2>
+            <button type="button" onclick="analyzeData()">Analyze</button>
+            <h3>Analysis Results:</h3>
+            <div id="analysisResults"></div>
+        </div>
+    </div>
+    <footer>
+        <p>TEI Markup Tool &copy; 2024</p>
+    </footer>
+
+    <script>
+        let tags = [];
+
+        function addTag() {
+            const tagName = document.getElementById('tagName').value.trim();
+            const keywords = document.getElementById('keywords').value.trim().split(',').map(k => k.trim());
+
+            if (tagName && keywords.length > 0) {
+                tags.push({ tagName, keywords });
+                updateTagTable();
+            } else {
+                alert('Please enter a tag name and at least one keyword.');
+            }
+        }
+
+        function updateTagTable() {
+            const tbody = document.querySelector('#tagTable tbody');
+            tbody.innerHTML = '';
+            tags.forEach((tag, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${tag.tagName}</td>
+                    <td>${tag.keywords.join(', ')}</td>
+                    <td><button onclick="removeTag(${index})">Remove</button></td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function removeTag(index) {
+            tags.splice(index, 1);
+            updateTagTable();
+        }
+
+        function saveTags() {
+            localStorage.setItem('teiTags', JSON.stringify(tags));
+            alert('Tags saved successfully!');
+        }
+
+        function loadTags() {
+            const savedTags = localStorage.getItem('teiTags');
+            if (savedTags) {
+                tags = JSON.parse(savedTags);
+                updateTagTable();
+                alert('Tags loaded successfully!');
+            } else {
+                alert('No saved tags found.');
+            }
+        }
+
+        function processFile() {
+            const fileInput = document.getElementById('fileInput');
+            const originalContent = document.getElementById('originalContent');
+            const markedContent = document.getElementById('markedContent');
+
+            if (fileInput.files.length === 0) {
+                alert('Please upload a file.');
+                return;
+            }
+
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                const text = e.target.result;
+                originalContent.value = text;
+                markedContent.value = autoMarkText(text);
+            };
+
+            reader.readAsText(file);
+        }
+
+        function autoMarkText(text) {
+            let markedText = text;
+
+            tags.forEach(tag => {
+                tag.keywords.forEach(keyword => {
+                    const regex = new RegExp(`\b${keyword}\b`, 'gi');
+                    markedText = markedText.replace(regex, `<${tag.tagName}>$&</${tag.tagName}>`);
+                });
+            });
+
+            return markedText;
+        }
+
+        function analyzeData() {
+            const markedContent = document.getElementById('markedContent').value;
+            if (!markedContent) {
+                alert('Please process a file first.');
+                return;
+            }
+
+            const analysisResults = document.getElementById('analysisResults');
+            const tagCounts = {};
+
+            tags.forEach(tag => {
+                const regex = new RegExp(`<${tag.tagName}>.*?</${tag.tagName}>`, 'g');
+                const matches = markedContent.match(regex) || [];
+                tagCounts[tag.tagName] = matches.length;
+            });
+
+            analysisResults.innerHTML = '<ul>' +
+                Object.entries(tagCounts).map(([tag, count]) => `<li>${tag}: ${count} occurrences</li>`).join('') +
+                '</ul>';
+        }
+    </script>
+</body>
+</html>

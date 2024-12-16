@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>皮卡卡聚集地</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <!-- 頁首 -->
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="imgs/index_had.webp" alt="皮卡卡 Logo">
+                <span>Hello, I'm Pika</span>
+            </a>
+            <nav class="nav">
+                <ul>
+                    <li><a href="Introducing.html">介紹</a></li>
+                    <li><a href="GOAHEAD.html">關於我</a></li>
+                    <li><a href="Social.html">社群</a></li>
+                    <li><a href="TEI.html">TEI工具</a></li>
+                    <li><a href="#">其他</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+     <h1 id="message"></h1>
+     <script src="hello.js"></script>
+    
+    <!-- 主內容 -->
+    <main>
+        <div id="customAlert" class="alert">
+            <div class="alert-content">
+                <span class="alert-title">OwO Welcome OwO</span>
+                <br>
+                <p>《皮卡卡聚集地》</p>
+                <p>可以到處逛逛呦！OwO</p>
+                <br>
+                <button onclick="closeAlert()">關閉</button>
+            </div>
+        </div>
+
+        
+        <section class="math-test">
+            <h2>數學測試</h2>
+            <div class="test-box">
+                <p>這是 <strong>2<sup>10</sup></strong></p>
+                <p>這是 <strong>2<sub>2</sub></strong></p>
+            </div>
+        </section>
+
+        
+        <section class="media">
+            <h2>Video & Audio</h2>
+            <div class="media-container">
+                <div class="video">
+                    <h3>影片測試</h3>
+                    <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/CMOTlZsXPTE?si=5YrVX2JTnr8746iM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/XP0SoWq_xNA?si=NxrMhytSmWi300d8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="audio">
+                    <h3>音檔測試</h3>
+                    <audio controls>
+                        <source 
+                            src="./❀HoneyComeBear❀  Revolver ♪.aac" 
+                            type="audio/aac">
+                        瀏覽器不支援音頻播放。
+                    </audio>
+                </div>
+            </div>
+        </section>
+
+        <!-- 聯絡表單 -->
+        <section class="contact-form">
+            <h2>聯絡我</h2>
+            <form id="contactForm">
+                <label for="name">姓名：</label>
+                <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    placeholder="輸入您的名字" 
+                    required>
+
+                <label for="email">電子郵件：</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    placeholder="輸入您的電子郵件" 
+                    required>
+
+                <label for="message">留言：</label>
+                <textarea 
+                    id="message" 
+                    name="message" 
+                    placeholder="輸入您的訊息" 
+                    rows="5" 
+                    required>
+                </textarea>
+
+                <center><button type="submit">送出</button></center>
+            </form>
+        </section>
+    </main>
+
+    <!-- 回到頂部按鈕 -->
+    <button id="backToTop" class="back-to-top">↑ 回到頂部</button>
+
+    <!-- 歡迎區域 -->
+        <section class="welcome">
+            <h1>歡迎來到皮卡卡聚集地！</h1>
+            <p>探索皮卡卡的世界，加入我們的大家庭！</p>
+        </section>
+    
+    <!-- 頁尾 -->
+    <footer class="footer">
+        <p>&copy; 2024 Pikariowo. 版權所有。</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,33 +1,9 @@
 <!DOCTYPE html>
 <html>
-    
     <style>
-        html {
-            height: 100%;
-        }
-        
-        marquee {
-            overflow: hidden;
-            white-space: nowrap;
-            width: 100%; /* 根據需要調整寬度 */
-            animation: marquee 10s linear infinite; /* 調整 10s 為你想要的速度 */
-        }
-
-        @keyframes marquee {
-            from {
-                transform: translateX(100%);
-            }
-            to {
-                transform: translateX(-100%);
-            }
-        }
-        
-        div {
-            font-size: 40px;
-        }
         
         body {
-            background-image: url(qkUYZHZ.png);
+            background-image: url(./imgs/qkUYZHZ.png);
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-position: top;
@@ -38,64 +14,38 @@
     <head>
         <meta charset =“utf-8”> <!--  UTF-8編碼 -->
         <title>皮卡卡聚集地</title>
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel=stylesheet type="text/css" href="./CSS/index/index_had.css">
+        <link rel=stylesheet type="text/css" href="./CSS/tooltip.css">
+        <meta name="viewport" content="width=device-width, initial-scale=2">
     </head>
     
     <body>
-        
         <style>
             .test {
                 text-shadow: 2px 2px 2px rgba(0.0,0.0,0.0,0.85)
             }
         </style>
         
-        <h1><center><mark>Hello,Everyone</mark></center></h1>
-        <h1><center><a href="https://elearning.nkust.edu.tw/mooc/login.php" target="_blank">高科大—教學平台</a></center></h1>
-        <hr>
-        <br>
-        <h1><p><marquee>你真的看的到我在移動嗎</marquee></p></h1>
-        <br>
         
-        <div>
-            <table style="width:100%" border="5">
-                <center><b>《My Hobby》</b></center>
-                <tr> <!-- 表格主題-->
-                    <th><strong>我愛蘿莉</strong></th>
-                    <th>
-                        <a href="https://www.youtube.com/" target="_blank">Youtube</a>
-                    </th>
-                </tr>
-
-                <tr> <!--Youtube-->
-                    <th><em>我愛蘿莉</em></th>
-                    <th>
-                        <a href="https://www.bilibili.com/" target="_blank">BiliBili</a>
-                    </th>
-                </tr>
-        
-                <tr> <!--Youtube-->
-                    <th><u>我愛蘿莉</u></th>
-                    <th>
-                        <a href="GOAHEAD.html" target="_self">自介專區</a>
-                    </th>
-                </tr> 
-                
-                <tr> <!--Youtube-->
-                    <th><u>我愛蘿莉</u></th>
-                </tr> 
-        
-                <tr> <!--Youtube-->
-                    <th><s>我愛蘿莉</s></th>
-                </tr> 
-        
-                <tr> <!--Youtube-->
-                    <th><del><u><i>我愛蘿莉</i></u></del></th>
-                </tr> 
-            </table>
+        <!--上列選單-->
+        <div class="bgs">
+            <header class="had">
+                <a href="#"><img class="index_logo" src="imgs/index_had.webp" alt="Hikari美婆好美" title="Hello I'm 皮卡"></a>
+                <nav>
+                    <ul class="navcss">
+                        <p><a href="Introducing.html" target="_self">Introducing　　</a></p>
+                        <p><a href="GOAHEAD.html" target="_self">MySelf　</a></p>
+                        <p><a href="#">　Social　</a></p>
+                        <p><a href="#">　Other　</a></p>
+                    </ul>
+                </nav>
+            </header>
         </div>
-        
         <br>
+        <hr> 
+        <br>
+        
+        <marquee style="color: red; font-size: 20px;">歡迎來到皮卡卡聚集地！</marquee>
         
         <div class="test">
             <h3>※ Math Test</h3>
@@ -122,7 +72,7 @@
         <div>
             <center>
                 <h1>《影片放置測試》</h1>
-                    <iframe width="1920" height="1080" src="https://www.youtube-nocookie.com/embed/CMOTlZsXPTE?si=5YrVX2JTnr8746iM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="1280" height="720" src="https://www.youtube-nocookie.com/embed/CMOTlZsXPTE?si=5YrVX2JTnr8746iM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </center>
         </div>
         
@@ -136,7 +86,47 @@
                 </audio> 
             </center>
         </div>
+        
+        <div class = "form_bg">
+            <div class="form_ft">
+                <center><h3 class="form_name">Contact us</h3></center>
+                <form action="#">
+                    <div>
+                        <label for="name">姓名</label>
+                        <input type="text" id="name" name="name">
+                    </div>
+                    
+                    <div>
+                        <label for="email">電子郵件</label>
+                        <input type="text" id="email" name="mail">
+                    </div>
+                    
+                    <div>
+                        <label for="message">留言</label>
+                        <input type="message" id="message" name="message">
+                    </div>
+                    <input type="submit" class="form_button" value="送出" style="font-size: 32px">
+                </form>
+            </div>
+        </div>
 
+        <!--頁尾-->
+        <footer>
+            <div class="footerft">
+                <p>Pikachu &copy; All Right Reserverd</p>
+            </div>
+        </footer>
+        
+        <script>
+          document.querySelectorAll('.tooltip').forEach(function (tooltip) {
+            tooltip.addEventListener('mouseenter', function () {
+              const tooltipText = tooltip.querySelector('.tooltiptext');
+              const rect = tooltip.getBoundingClientRect();
+              tooltipText.style.left = `${rect.left + rect.width / 2 - tooltipText.offsetWidth / 2}px`; 
+              tooltipText.style.top = `${rect.top - tooltipText.offsetHeight - 10}px`; 
+            });
+          });
+        </script>
+        
     </body>
-
 </html>

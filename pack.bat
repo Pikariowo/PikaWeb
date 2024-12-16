@@ -1,0 +1,1 @@
+pyuic6 -x "./ui/index.ui" -o UI.py
