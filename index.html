@@ -7,6 +7,36 @@
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
+    
+    <style>
+        .nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 7%;
+            background: black;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+        }
+        
+        .nav ul li ul li {
+          display: block;
+          padding: 10px;
+          background: black;
+          color: #333;
+          border-bottom: 1px solid #ddd;
+        }
+        
+        .nav ul li ul li:hover {
+          background: black; /* 子清單懸停效果 */
+        }
+        
+        .nav ul li:hover ul {
+            display: block;
+        }
+    </style>
+    
     <!-- 頁首 -->
     <header class="header">
         <div class="container">
@@ -19,7 +49,11 @@
                     <li><a href="Introducing.html">介紹</a></li>
                     <li><a href="GOAHEAD.html">關於我</a></li>
                     <li><a href="Social.html">社群</a></li>
-                    <li><a href="TEI.html">TEI工具</a></li>
+                    <li><a href="#">工具</a>
+                        <ul>
+                            <li><a href="TEI.html">TEI工具</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#">其他</a></li>
                 </ul>
             </nav>
