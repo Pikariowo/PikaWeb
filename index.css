@@ -84,6 +84,39 @@ body {
     border-radius: 5px; 
 }
 
+.nav p {
+    text-decoration: none; 
+    color: #fff; 
+    padding: 5px 10px; 
+    font-size: 1.5rem;
+    transition: color 0.3s, background-color 0.3s; 
+}
+
+.nav button {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease; 
+}
+
+.nav button:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+.nav button:active {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transform: scale(0.95);
+}
+
 .alert {
     display: none;
     position: fixed;
@@ -141,7 +174,7 @@ body {
     color: white;
 }
 
-.math-test, .media, .contact-form {
+.main, .media, .contact-form {
     padding: 2rem 0;
     margin: 2rem 0;
     background: #fff;
