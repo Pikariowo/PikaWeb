@@ -76,12 +76,13 @@
     </style>
     
     <div class="container">
+
         <style>
             h2 {
-                text-shadow: 1px 1px 1px rgba(255.0, 255.0, 255.0, 1.0)
+                text-shadow: 1px 1px 1px rgba(255.0, 255.0, 255.0)
             }
         </style>
-
+        
         <!-- 建立標籤 -->
         <div class="form-section">
             <h2>Step 1: 創建標籤</h2>
@@ -113,11 +114,11 @@
             <input type="file" id="fileInput" accept=".txt, .xml">
             <button type="button" onclick="processFile()">處理標記</button>
             <button type="button" onclick="clearFileInput()">清除上傳檔案</button>
-            <button type="button" onclick="clearOriginalContent()">移除檔案資料</button>
-            
-            <h3>《原始檔案》</h3>
+            <button type="button" onclick="clearOriginalContent()">移除檔案資料(原始)</button>
+            <h3>原始檔案:</h3>
             <textarea id="originalContent"></textarea>
-            <h3>《標記後的檔案》</h3>
+            
+            <h3>標記後的檔案:</h3>
             <textarea id="markedContent" readonly></textarea>
         </div>
 
@@ -132,12 +133,12 @@
     
     <div class="firefly_nod">
         <style> 
-            .firefly_nod p {
+            .firefly_nod b {
                 text-align: center;
                 display: none;
             }
         </style>
-        <p id="gif_firefly"><img src="imgs/firefly_nodding.gif"></p>
+        <b id="gif_firefly"><img src="imgs/firefly_nodding.gif"></b>
     </div>
     <p></p>
     
@@ -247,17 +248,13 @@
         }
 
         function clearFileInput() {
-            const originalContent = document.getElementById('originalContent');
-            const markedContent = document.getElementById('markedContent');
             const fileInput = document.getElementById('fileInput');
             fileInput.value = '';
-            originalContent.value = '';
-            markedContent.value = '';
         }
 
         function analyzeData() {
             const markedContent = document.getElementById('markedContent').value;
-            const firefly = document.getElementById('gif_firefly');
+            const display_firefly = document.getElementById("gif_firefly");
             
             if (display_firefly.style.display === "none") {
                 display_firefly.style.display = "block";
