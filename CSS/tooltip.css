@@ -1,10 +1,22 @@
 @charset "UTF-8";
 
+.container_hikari {
+    width: 100%;
+    z-index: 100;
+    text-align: right;
+    height: 100%;
+    margin-top: -125px;
+    /*測試固定用*/
+    position: fixed;
+    top: 102%; 
+    right: 5px; 
+}
+
 .tooltip {
   position: relative;
   display: inline-block;
   cursor: pointer;
-  color: #ff1493; /* 粉紅色文字 */
+  color: #ff1493;
   text-decoration: none;
   font-weight: bold;
 }

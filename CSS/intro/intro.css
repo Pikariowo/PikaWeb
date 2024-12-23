@@ -1,17 +1,5 @@
 @charset "UTF-8";
 
-.container {
-    width: 100%;
-    z-index: 100;
-    text-align: right;
-    height: 100%;
-    margin-top: -125px;
-    /*測試固定用*/
-    position: fixed;
-    top: 102%; 
-    right: 5px; 
-}
-
 .row-container {
     display: flex;
     align-items: center;

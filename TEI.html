@@ -33,9 +33,10 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            background-color: gray;
         }
         header, footer {
-            background: #f4f4f4;
+            background: green;
             text-align: center;
             padding: 10px 0;
         }
@@ -75,8 +76,13 @@
     </style>
     
     <div class="container">
+        <style>
+            h2 {
+                text-shadow: 1px 1px 1px rgba(255.0, 255.0, 255.0, 1.0)
+            }
+        </style>
 
-        <!-- Section for defining tags -->
+        <!-- 建立標籤 -->
         <div class="form-section">
             <h2>Step 1: 創建標籤</h2>
             <form id="tagForm">
@@ -84,7 +90,7 @@
                 <input type="text" id="tagName" placeholder="Tag name">
                 <label for="keywords">Keywords (comma-separated):</label>
                 <input type="text" id="keywords" placeholder="e.g., populations, citizens">
-                <button type="button" onclick="addOrUpdateTag()">Add/Update Tag</button>
+                <button type="button" onclick="addOrUpdateTag()">創建/更新 Tag</button>
             </form>
             <h3>定義/紀錄標記:</h3>
             <table id="tagTable">
@@ -101,27 +107,40 @@
             <button type="button" onclick="loadTags()">讀取 Tags</button>
         </div>
 
-        <!-- Section for file upload and marking -->
+        <!-- 資料上傳跟標記 -->
         <div class="form-section">
             <h2>Step 2: 上傳要標記的檔案</h2>
             <input type="file" id="fileInput" accept=".txt, .xml">
             <button type="button" onclick="processFile()">處理標記</button>
             <button type="button" onclick="clearFileInput()">清除上傳檔案</button>
-            <h3>原始檔案:</h3>
+            <button type="button" onclick="clearOriginalContent()">移除檔案資料</button>
+            
+            <h3>《原始檔案》</h3>
             <textarea id="originalContent"></textarea>
-            <button type="button" onclick="clearOriginalContent()">移除檔案資料(原始)</button>
-            <h3>標記後的檔案:</h3>
+            <h3>《標記後的檔案》</h3>
             <textarea id="markedContent" readonly></textarea>
         </div>
 
-        <!-- Section for analysis -->
+        <!-- 分析資料的地方 -->
         <div class="form-section">
             <h2>Step 3: 分析XML資料</h2>
             <button type="button" onclick="analyzeData()">Analyze</button>
-            <h3>Analysis Results:</h3>
+            <h3>分析結果:</h3>
             <div id="analysisResults"></div>
         </div>
     </div>
+    
+    <div class="firefly_nod">
+        <style> 
+            .firefly_nod p {
+                text-align: center;
+                display: none;
+            }
+        </style>
+        <p id="gif_firefly"><img src="imgs/firefly_nodding.gif"></p>
+    </div>
+    <p></p>
+    
     <footer>
         <p>TEI 標記工具 by 皮 ch.Hikari &copy; 2024</p>
     </footer>
@@ -136,15 +155,15 @@
             if (tagName && keywords.length > 0) {
                 const existingTag = tags.find(tag => tag.tagName === tagName);
                 if (existingTag) {
-                    // Add new keywords to the existing tag
+                    // 新增一個新的keywords 當Tag已經建立的時候
                     existingTag.keywords = Array.from(new Set([...existingTag.keywords, ...keywords]));
                 } else {
-                    // Create a new tag
+                    // 新增一個Tag
                     tags.push({ tagName, keywords });
                 }
                 updateTagTable();
             } else {
-                alert('Please enter a tag name and at least one keyword.');
+                alert('請輸入一個Tag標籤名稱 以及 附屬的關鍵字！！！');
             }
         }
 
@@ -228,12 +247,24 @@
         }
 
         function clearFileInput() {
+            const originalContent = document.getElementById('originalContent');
+            const markedContent = document.getElementById('markedContent');
             const fileInput = document.getElementById('fileInput');
             fileInput.value = '';
+            originalContent.value = '';
+            markedContent.value = '';
         }
 
         function analyzeData() {
             const markedContent = document.getElementById('markedContent').value;
+            const firefly = document.getElementById('gif_firefly');
+            
+            if (display_firefly.style.display === "none") {
+                display_firefly.style.display = "block";
+            }else {
+                display_firefly.style.display = "none";
+            }
+            
             if (!markedContent) {
                 alert('Please process a file first.');
                 return;

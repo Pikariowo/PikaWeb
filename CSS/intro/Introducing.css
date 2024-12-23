@@ -71,15 +71,14 @@ header {
 }
 
 footer {
+    position: absolute;
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 10px;
-    position: absolute;
+    padding: -50px;
     width: 100%;
     bottom: 0;
 }
-
 
 .container_hikari {
     width: 100%;
