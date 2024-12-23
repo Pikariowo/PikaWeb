@@ -81,6 +81,31 @@
             h2 {
                 text-shadow: 1px 1px 1px rgba(255.0, 255.0, 255.0)
             }
+            
+            .form-section button {
+                background: linear-gradient(150deg, #6a11cb, #2575fc);
+                border: none;
+                border-radius: 30px;
+                color: white;
+                padding: 12px 24px;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+                transition: all 0.5s ease;
+            }
+
+            .form-section button:hover {
+                background: linear-gradient(135deg, #2575fc, #6a11cb);
+                box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+                transform: scale(1.05);
+            }
+
+            .form-section button:active {
+                background: linear-gradient(135deg, #6a11cb, #2575fc);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                transform: scale(0.95);
+            }
         </style>
         
         <!-- 建立標籤 -->
@@ -144,6 +169,7 @@
     
     <footer>
         <p>TEI 標記工具 by 皮 ch.Hikari &copy; 2024</p>
+            <b>Updated at &times; 2024-12-23</b>
     </footer>
 
     <script>
@@ -256,12 +282,6 @@
             const markedContent = document.getElementById('markedContent').value;
             const display_firefly = document.getElementById("gif_firefly");
             
-            if (display_firefly.style.display === "none") {
-                display_firefly.style.display = "block";
-            }else {
-                display_firefly.style.display = "none";
-            }
-            
             if (!markedContent) {
                 alert('Please process a file first.');
                 return;
@@ -270,6 +290,9 @@
             const analysisResults = document.getElementById('analysisResults');
             const tagCounts = {};
             const tagSamples = {};
+            
+            display_firefly.style.display = "block";
+
 
             tags.forEach(tag => {
                 const regex = new RegExp(`<${tag.tagName}>(.*?)</${tag.tagName}>`, 'g');
