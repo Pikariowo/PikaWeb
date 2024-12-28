@@ -13,44 +13,24 @@
     </head>
     
     <body>
-        <style>
-        .nav ul li ul {
-            display: none;
-            position: absolute;
-            top: 7%;
-            background: black;
-            padding: 0;
-            margin: 0;
-            list-style: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-        }
-        
-        .nav ul li ul li {
-            display: block;
-            padding: 10px;
-            background: black;
-            color: #333;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .nav ul li ul li:hover {
-            background: black;
-        }
-        
-        .nav ul li:hover ul {
-            display: block;
-            border-radius: 90%;
-        }
-    </style>
         
     <script>
         $(document).ready(function() {
             $("#2048_btn").click(function() {
                 $.get("game01.html", function(data) {
-                    $("#2048").html(data);
+                    $("#game").html(data);
                 });
             });
         });
+        
+        $(document).ready(function() {
+            $("#dragon_btn").click(function() {
+                $.get("chrome://dino/", function(data) {
+                    $("#game").html(data);
+                });
+            });
+        });
+        
     </script>
     
     <!-- 頁首 -->
@@ -63,12 +43,13 @@
             <nav class="nav">
                 <ul>
                     <li><button id="2048_btn">2048</button></li>
+                    <li><button id="dragon_btn">恐龍跑</button></li>
                 </ul>
             </nav>
         </div>
     </header>
     
-    <p id="2048"></p>    
+    <p id="game"></p>    
     
         
     </body>

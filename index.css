@@ -26,8 +26,8 @@ body {
 }
 
 .logo {
-    position: relative; /* 確保提示語能相對於圖片定位 */
-    display: inline-block; /* 讓圖片和內容自然排佈 */
+    position: relative;
+    display: inline-block;
 }
 
 .logo img {
@@ -103,6 +103,9 @@ body {
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease; 
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    text-transform: uppercase; /* 全大寫文字 */
+    letter-spacing: 1px; /* 字距增加 */
 }
 
 .nav button:hover {
@@ -130,9 +133,9 @@ body {
 }
 
 .alert-content {
-    background-image: url(./imgs/Maya01.png);
+    background-image: url(./imgs/Maya.gif);
     background-position: center;
-    background-size: 105%;
+    background-size: 100%;
     background-repeat: no-repeat;
     background-color: lightblue;
     padding: 20px;

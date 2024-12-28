@@ -1,132 +1,133 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>輸入框範例</title>
     <style>
-        
         body {
-            background-image: url(./imgs/qkUYZHZ.png);
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: top;
-            background-size: cover;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, textarea, select, button {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: #6a11cb; /* 聚焦時改變邊框顏色 */
+            outline: none;
+            box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
+        }
+
+        button {
+            background-color: #6a11cb;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4e0f99;
         }
     </style>
-    
-    <head>
-        <meta charset =“utf-8”> <!--  UTF-8編碼 -->
-        <title>皮卡卡聚集地</title>
-        <link rel=stylesheet type="text/css" href="./CSS/index/index_had.css">
-        <link rel=stylesheet type="text/css" href="./CSS/tooltip.css">
-        <meta name="viewport" content="width=device-width, initial-scale=2">
-    </head>
-    
-    <body>
-        <style>
-            .test {
-                text-shadow: 2px 2px 2px rgba(0.0,0.0,0.0,0.85)
-            }
-        </style>
-        
-        
-        <!--上列選單-->
-        <div class="bgs">
-            <header class="had">
-                <a href="#"><img class="index_logo" src="imgs/index_had.webp" alt="Hikari美婆好美" title="Hello I'm 皮卡"></a>
-                <nav>
-                    <ul class="navcss">
-                        <p><a href="Introducing.html" target="_self">Introducing　　</a></p>
-                        <p><a href="GOAHEAD.html" target="_self">MySelf　</a></p>
-                        <p><a href="#">　Social　</a></p>
-                        <p><a href="#">　Other　</a></p>
-                    </ul>
-                </nav>
-            </header>
-        </div>
-        <br>
-        <hr> 
-        <br>
-        
-        <marquee style="color: red; font-size: 20px;">歡迎來到皮卡卡聚集地！</marquee>
-        
-        <div class="test">
-            <h3>※ Math Test</h3>
-            <p><i>這是 2<sup>10</sup>次方</i></p>
-            <br>
-            <p><i>這是 2<sub>2</sub></i></p>
-        </div>
-        
-        <div class="test">
-            <h3>※ List Test</h3>
-            <label for="browser">Choose your browser from the list:</label>
-            <input list="browsers" name="browser" id="browser">
+</head>
+<body>
+    <style>
+        .test p {
+            font-size: 48px;
+            text-align: center;
+            color: aqua;
+        }
+    </style>
+    <div id="Hello" class="test">
+        <p>{{ message }}</p>
+    </div>
 
-            <datalist id="browsers">
-              <option value="Edge">
-              <option value="Firefox">
-              <option value="Chrome">
-              <option value="Opera">
-              <option value="Safari">
-            </datalist>
-        </div>
-        
-        <!--影片放置-->
-        <div>
-            <center>
-                <h1>《影片放置測試》</h1>
-                    <iframe width="1280" height="720" src="https://www.youtube-nocookie.com/embed/CMOTlZsXPTE?si=5YrVX2JTnr8746iM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </center>
-        </div>
-        
-        <br>
-        
-        <!--音檔放置測試-->
-        <div>
-            <center>
-                <h1>《音檔放置測試》</h1>
-                <audio src="./❀HoneyComeBear❀  Revolver ♪.aac" controls>
-                </audio> 
-            </center>
-        </div>
-        
-        <div class = "form_bg">
-            <div class="form_ft">
-                <center><h3 class="form_name">Contact us</h3></center>
-                <form action="#">
-                    <div>
-                        <label for="name">姓名</label>
-                        <input type="text" id="name" name="name">
-                    </div>
-                    
-                    <div>
-                        <label for="email">電子郵件</label>
-                        <input type="text" id="email" name="mail">
-                    </div>
-                    
-                    <div>
-                        <label for="message">留言</label>
-                        <input type="message" id="message" name="message">
-                    </div>
-                    <input type="submit" class="form_button" value="送出" style="font-size: 32px">
-                </form>
-            </div>
+    <script>
+      const { createApp, ref } = Vue
+
+      createApp({
+        setup() {
+          const message = ref('奧力給!')
+          const text = "奧力給！"
+            alert(text);
+          return {
+              message
+          }
+        }
+      }).mount('#Hello')
+    </script>
+
+    <h1>建立輸入框</h1>
+    <form>
+        <!-- 基本輸入框 -->
+        <div class="form-group">
+            <label for="text-input">文字輸入框：</label>
+            <input type="text" id="text-input" placeholder="輸入文字">
         </div>
 
-        <!--頁尾-->
-        <footer>
-            <div class="footerft">
-                <p>Pikachu &copy; All Right Reserverd</p>
-            </div>
-        </footer>
-        
-        <script>
-          document.querySelectorAll('.tooltip').forEach(function (tooltip) {
-            tooltip.addEventListener('mouseenter', function () {
-              const tooltipText = tooltip.querySelector('.tooltiptext');
-              const rect = tooltip.getBoundingClientRect();
-              tooltipText.style.left = `${rect.left + rect.width / 2 - tooltipText.offsetWidth / 2}px`; 
-              tooltipText.style.top = `${rect.top - tooltipText.offsetHeight - 10}px`; 
-            });
-          });
-        </script>
-        
-    </body>
+        <!-- 電子郵件輸入框 -->
+        <div class="form-group">
+            <label for="email-input">電子郵件：</label>
+            <input type="email" id="email-input" placeholder="輸入你的電子郵件">
+        </div>
+
+        <!-- 密碼輸入框 -->
+        <div class="form-group">
+            <label for="password-input">密碼：</label>
+            <input type="password" id="password-input" placeholder="輸入密碼">
+        </div>
+
+        <!-- 數字輸入框 -->
+        <div class="form-group">
+            <label for="number-input">數字輸入框：</label>
+            <input type="number" id="number-input" placeholder="輸入數字">
+        </div>
+
+        <!-- 日期輸入框 -->
+        <div class="form-group">
+            <label for="date-input">選擇日期：</label>
+            <input type="date" id="date-input">
+        </div>
+
+        <!-- 下拉選單 -->
+        <div class="form-group">
+            <label for="select-input">下拉選單：</label>
+            <select id="select-input">
+                <option value="">-- 請選擇 --</option>
+                <option value="option1">選項 1</option>
+                <option value="option2">選項 2</option>
+                <option value="option3">選項 3</option>
+            </select>
+        </div>
+
+        <!-- 文本區域 -->
+        <div class="form-group">
+            <label for="textarea-input">多行文字輸入框：</label>
+            <textarea id="textarea-input" rows="4" placeholder="輸入你的訊息"></textarea>
+        </div>
+
+        <!-- 提交按鈕 -->
+        <button type="submit">提交</button>
+    </form>
+
+</body>
 </html>

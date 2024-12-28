@@ -6,8 +6,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
-            $("button").click(function() {
-                $.get("index.html", function(data) {
+            $("#2048").click(function() {
+                $.get("game01.html", function(data) {
                     $("#ja").html(data);
                 });
             });
@@ -17,6 +17,6 @@
 </head>
 <body>
     <p id="ja"></p>
-    <button>Load Data</button>
+    <button id="2048">Load Data</button>
 </body>
 </html>
