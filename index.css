@@ -104,8 +104,8 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease; 
     background: linear-gradient(135deg, #ff7eb3, #ff758c);
-    text-transform: uppercase; /* 全大寫文字 */
-    letter-spacing: 1px; /* 字距增加 */
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .nav button:hover {

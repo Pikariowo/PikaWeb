@@ -12,6 +12,15 @@
     right: 5px; 
 }
 
+.container_hikari a img {
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.container_hikari a img:hover {
+    transform: scale(1.2);
+}
+
 .tooltip {
   position: relative;
   display: inline-block;
